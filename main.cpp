@@ -1,3 +1,25 @@
+// -----------------------------------------------------------------------------
+// Wideband Analog Input (GPIO33)
+//
+// ESP32 ADC inputs are NOT 5V tolerant.
+// Do NOT connect it directly to GPIO33.
+//
+//   WB 0-5V
+//      |
+//     10k
+//      |
+//      +---- 1k ----+----> GPIO33
+//      |            |
+//     10k         100nF
+//      |            |
+//     GND          GND
+//
+// Divider: 10k / 10k  -> 0-5V becomes approximately 0-2.5V
+// Filter : 1k + 100nF -> reduces ADC noise
+//
+// See README.md for wiring details.
+// -----------------------------------------------------------------------------
+
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 #include <SPI.h>
@@ -21,7 +43,7 @@ int textY;
 char buf[10];
 
 void drawTopBoxes(GFXcanvas16 &c, float afr) {
-    const int numBoxes 		= 11;
+	const int numBoxes 		= 11;
     const int gap 			= 2;
     const int boxHeight 	= 28;
     uint16_t inactiveColor  = 0x0861;
