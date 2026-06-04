@@ -184,7 +184,7 @@ PLA is not recommended due to the temperatures commonly reached inside parked ve
 ## 📥 Installation
 
 1. Download or clone the repository
-2. Download `JetBrainsMonoBold50pt7b.h`
+2. Download [JetBrainsMonoBold50pt7b.h](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/JetBrainsMonoBold50pt7b.h)
 3. [Open the project in Arduino IDE and setup](https://manuals.plus/ae/1005007181435830)
 4. Install required libraries:
 
