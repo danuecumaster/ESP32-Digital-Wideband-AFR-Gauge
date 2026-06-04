@@ -133,6 +133,77 @@ If your wideband controller uses a different voltage-to-AFR mapping, adjust the 
 
 ---
 
+## 🎯 ADC Calibration (Optional)
+
+The ESP32 ADC can vary slightly from board to board. In addition, resistor tolerances in the input divider may introduce small measurement errors.
+
+For maximum accuracy, the firmware includes an optional gain correction factor:
+
+```cpp
+#define ADC_GAIN 1.0000f
+```
+
+Default value:
+
+```cpp
+#define ADC_GAIN 1.0000f
+```
+
+Voltage calculation:
+
+```cpp
+float voltage = ((raw / 4095.0f) * 3.3f * ADC_GAIN);
+```
+
+### Calibration Procedure
+
+1. Apply a known voltage to the wideband input.
+2. Measure the voltage using a quality multimeter.
+3. Compare the measured voltage against the voltage calculated by the ESP32.
+4. Calculate the gain correction:
+
+```text
+ADC_GAIN = Actual Voltage / Measured Voltage
+```
+
+Example:
+
+```text
+Multimeter Voltage : 2.500V
+ESP32 Voltage      : 2.450V
+
+ADC_GAIN = 2.500 / 2.450
+         = 1.0204
+```
+
+Update the firmware:
+
+```cpp
+#define ADC_GAIN 1.0204f
+```
+
+### Recommended Test Points
+
+For best results, verify several points across the operating range:
+
+```text
+0.0V
+1.5V
+3.0V
+5.0V
+```
+
+If the calculated voltage closely matches the multimeter reading at all test points, calibration is complete.
+
+### Notes
+
+* Calibration compensates for ADC variation and resistor tolerance.
+* Most installations only require gain correction.
+* Calibration only needs to be performed once unless hardware is changed.
+* The 100nF filter capacitor does not affect DC calibration accuracy.
+
+---
+
 ## 📊 ADC Filtering
 
 To reduce display flicker and improve stability, the firmware averages 16 ADC samples:
