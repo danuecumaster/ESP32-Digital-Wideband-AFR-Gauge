@@ -1,6 +1,6 @@
 # ESP32 Digital Wideband AFR Gauge
 
-![Gauge](assets/gauge.jpg)
+![Gauge](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/gauge.jpg)
 
 A simple ESP32-based digital AFR gauge for wideband controllers that provide a **0-5V analog output**. AFR is displayed on a **1.9" 320×170 ST7789 TFT display** with a large numeric readout and color-coded AFR indicator bar.
 
@@ -22,13 +22,9 @@ This project was developed and tested using:
 * 1.9" 170×320 ST7789 TFT display
 * ESP32-WROOM module
 
-### Board
-
-![Ideaspark ESP32 LCD Board](assets/board.jpg)
-
 ### Pinout
 
-![Ideaspark ESP32 Pinout](assets/pinout.png)
+![Ideaspark ESP32 Pinout](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/pinout.png)
 
 ### Pin Assignment
 
@@ -142,8 +138,8 @@ A 3D printable enclosure is included.
 
 Downloads:
 
-* case.stl
-* cover.stl
+* <https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/case.stl>
+* <https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/cover.stl>
 
 Recommended print material:
 
