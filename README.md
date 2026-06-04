@@ -22,6 +22,10 @@ This project was developed and tested using:
 * 1.9" 170×320 ST7789 TFT display
 * ESP32-WROOM module
 
+### Board
+
+<https://manuals.plus/ae/1005007181435830>
+
 ### Pinout
 
 ![Ideaspark ESP32 Pinout](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/pinout.jpg)
