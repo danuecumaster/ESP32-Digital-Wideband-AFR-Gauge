@@ -3,17 +3,12 @@
 ### Compact standalone AFR display for 0-5V wideband controllers
 
 [![ESP32](https://img.shields.io/badge/MCU-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
-[![ST7789](https://img.shields.io/badge/TFT-170x320%20ST7789-green.svg)]()
 [![Wideband](https://img.shields.io/badge/Wideband-0--5V%20Input-orange.svg)]()
 [![AFR](https://img.shields.io/badge/Gauge-Digital%20AFR-success.svg)]()
-[![Automotive](https://img.shields.io/badge/Use-Automotive-red.svg)]()
-[![RC Filter](https://img.shields.io/badge/Input-RC%20Filtered-yellow.svg)]()
 [![ADC](https://img.shields.io/badge/ADC-16%20Sample%20Average-blueviolet.svg)]()
-[![Font](https://img.shields.io/badge/Font-JetBrains%20Mono-lightgrey.svg)]()
-[![Case](https://img.shields.io/badge/Case-3D%20Printable-lightgrey.svg)]()
+[![Arduino](https://img.shields.io/badge/Framework-Arduino-blue.svg)](https://www.arduino.cc/)
+[![C++](https://img.shields.io/badge/Language-C++-orange.svg)](https://isocpp.org)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)]()
-
-![AFR Gauge](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/gauge.jpg)
 
 ---
 
