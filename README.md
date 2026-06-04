@@ -133,17 +133,11 @@ If your wideband controller uses a different voltage-to-AFR mapping, adjust the 
 
 ---
 
-## 🎯 ADC Calibration (Optional)
+## 🎯 ADC Calibration (GPIO Voltage Calibration)
 
 The ESP32 ADC can vary slightly from board to board. In addition, resistor tolerances in the input divider may introduce small measurement errors.
 
 For maximum accuracy, the firmware includes an optional gain correction factor:
-
-```cpp
-#define ADC_GAIN 1.0000f
-```
-
-Default value:
 
 ```cpp
 #define ADC_GAIN 1.0000f
