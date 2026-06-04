@@ -24,7 +24,7 @@ This project was developed and tested using:
 
 ### Pinout
 
-![Ideaspark ESP32 Pinout](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/pinout.png)
+![Ideaspark ESP32 Pinout](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/pinout.jpg)
 
 ### Pin Assignment
 
