@@ -106,7 +106,7 @@ This project uses a custom **JetBrains Mono Bold 50pt** font.
 
 Required file:
 
-* JetBrainsMonoBold50pt7b.h [Download](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/JetBrainsMonoBold50pt7b.h)
+* [JetBrainsMonoBold50pt7b.h](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/JetBrainsMonoBold50pt7b.h)
 
 Place the file in the project directory before compiling.
 
@@ -156,7 +156,7 @@ This works together with the RC filter to produce smoother AFR readings.
 * [Ideaspark ESP32 1.9" LCD Board](https://manuals.plus/ae/1005007181435830)
 * ESP32-WROOM
 * ST7789 170×320 TFT Display
-* Wideband Controller with 0-5V Analog Output ([Example:14Point7 SLC 2](https://www.14point7.com/products/sigma-lambda-controller-free-2>)
+* Wideband Controller with 0-5V Analog Output [Example:14Point7 SLC 2](https://www.14point7.com/products/sigma-lambda-controller-free-2>)
 * 10kΩ Resistors (×2)
 * 1kΩ Resistor
 * 100nF Ceramic Capacitor
