@@ -136,5 +136,5 @@ void loop() {
 	canvas.print(buf);
 	tft.drawRGBBitmap(0, 0, canvas.getBuffer(), 320, 170);	
 	
-    delay(25);
+    delay(33);	//30FPS. ADJUST AS NEEDED. 
 }
