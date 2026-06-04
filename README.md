@@ -34,7 +34,7 @@ Designed for automotive use, the gauge provides a large, easy-to-read AFR displa
 
 ### Display Board
 
-![Ideaspark ESP32 LCD Board] <https://manuals.plus/ae/1005007181435830>
+Ideaspark ESP32 LCD Board <https://manuals.plus/ae/1005007181435830>
 
 ### Pinout
 
