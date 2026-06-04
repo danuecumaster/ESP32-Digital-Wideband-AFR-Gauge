@@ -2,7 +2,7 @@
 
 A simple ESP32-based digital AFR gauge for wideband controllers that provide a **0-5V analog output**. AFR is displayed on a **320×170 ST7789 TFT display** with a large numeric readout and color-coded AFR indicator bar.
 
-![Gauge Photo](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/assets/gauge.jpg)
+![Gauge Photo](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/gauge.jpg)
 
 ## Features
 
@@ -32,7 +32,7 @@ This project was developed and tested using:
 | TFT Backlight         | GPIO32 |
 | Wideband Analog Input | GPIO33 |
 
-![Ideaspark Pinout](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/assets/ideaspark_pinout.jpg)
+![Ideaspark Pinout](https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/ideaspark_pinout.jpg)
 
 ## Wideband Input Circuit
 
@@ -94,7 +94,7 @@ If your wideband controller uses a different analog output scale, modify the AFR
 
 A 3D printable enclosure is available here:
 
-<https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/assets/case.stl> <https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/assets/cover.stl>
+<https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/case.stl> <https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/cover.stl>
 
 Recommended print material:
 
