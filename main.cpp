@@ -133,6 +133,8 @@ void loop() {
 	float wbVoltage = (voltage * V_DIVIDE);
 	afr_value 		= (AFR_MIN + (wbVoltage * AFR_DIVIDE));
 	
+	Serial.printf( "raw=%u gpio=%.3fV wb=%.3fV AFR=%.2f\n", raw, voltage, wbVoltage, afr_value ); // DEBUG
+	
 	if(afr_value < AFR_MIN || afr_value > AFR_MAX) {
 		strcpy(buf, "ERR");
 		afr_value = 0.0f;
