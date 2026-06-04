@@ -2,11 +2,11 @@
 
 A simple ESP32-based digital AFR gauge for wideband controllers that provide a **0-5V analog output**. AFR is displayed on a **320×170 ST7789 TFT display** with a large numeric readout and color-coded AFR indicator bar.
 
-![Gauge Photo](images/gauge.jpg)
+![Gauge Photo](assets/gauge.jpg)
 
 ## Features
 
-* Large, easy-to-read AFR display
+* 1.9" easy-to-read AFR display
 * Color-coded AFR status bar
 * Moving-average ADC sampling for improved stability
 * Designed for common 0-5V wideband controller outputs
@@ -32,7 +32,7 @@ This project was developed and tested using:
 | TFT Backlight         | GPIO32 |
 | Wideband Analog Input | GPIO33 |
 
-![Ideaspark Pinout](images/ideaspark_pinout.png)
+![Ideaspark Pinout](assets/ideaspark_pinout.jpg)
 
 ## Wideband Input Circuit
 
@@ -94,7 +94,7 @@ If your wideband controller uses a different analog output scale, modify the AFR
 
 A 3D printable enclosure is available here:
 
-<LINK_TO_STL>
+<assets/case.stl> <assets/cover.stl>
 
 Recommended print material:
 
