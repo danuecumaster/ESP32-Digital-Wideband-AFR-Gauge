@@ -79,8 +79,8 @@ Wideband 0-5V
 ### Input Components
 
 * 10kΩ resistor ×2 (1% metal film recommended)
-* 1kΩ resistor ×1 (1% metal film recommended)
-* 100nF ceramic capacitor (X7R or similar, ≥16V)
+* 1kΩ resistor ×1 (1-5% metal film recommended)
+* 100nF ceramic capacitor (≥16V)
 
 ### How It Works
 
