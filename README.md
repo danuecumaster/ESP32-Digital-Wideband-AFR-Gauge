@@ -34,7 +34,7 @@ Designed for automotive use, the gauge provides a large, easy-to-read AFR displa
 
 ### Display Board
 
-Ideaspark ESP32 LCD Board <https://manuals.plus/ae/1005007181435830>
+[Ideaspark ESP32 LCD Board]<https://manuals.plus/ae/1005007181435830>
 
 ### Pinout and Circuit Diagram
 
@@ -50,7 +50,7 @@ Ideaspark ESP32 LCD Board <https://manuals.plus/ae/1005007181435830>
 | TFT DC                | GPIO2  |
 | TFT RST               | GPIO4  |
 | TFT Backlight         | GPIO32 |
-| **Wideband Analog Input | GPIO33** |
+| **Wideband Analog Input** | **GPIO33** |
 
 ---
 
@@ -106,11 +106,7 @@ This project uses a custom **JetBrains Mono Bold 50pt** font.
 
 Required file:
 
-* JetBrainsMonoBold50pt7b.h
-
-Download:
-
-https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/JetBrainsMonoBold50pt7b.h
+* JetBrainsMonoBold50pt7b.h [Download]<https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/JetBrainsMonoBold50pt7b.h>
 
 Place the file in the project directory before compiling.
 
@@ -157,10 +153,10 @@ This works together with the RC filter to produce smoother AFR readings.
 
 ## 🧰 Hardware Used
 
-* Ideaspark ESP32 1.9" LCD Board (Manual <https://manuals.plus/ae/1005007181435830>) | (Pinout <https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/pinout.jpg>)
+* [Ideaspark ESP32 1.9" LCD Board]<https://manuals.plus/ae/1005007181435830>
 * ESP32-WROOM
 * ST7789 170×320 TFT Display
-* Wideband Controller with 0-5V Analog Output (Example: <https://www.14point7.com/products/sigma-lambda-controller-free-2>)
+* Wideband Controller with 0-5V Analog Output ([Example:14Point7 SLC 2]<https://www.14point7.com/products/sigma-lambda-controller-free-2>)
 * 10kΩ Resistors (×2)
 * 1kΩ Resistor
 * 100nF Ceramic Capacitor
@@ -173,8 +169,8 @@ A custom 3D-printable enclosure is included.
 
 ### Downloads
 
-* https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/case.stl
-* https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/cover.stl
+* [Case]<https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/case.stl>
+* [Cover]<https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/cover.stl>
 
 ### Recommended Materials
 
@@ -189,12 +185,12 @@ PLA is not recommended due to the temperatures commonly reached inside parked ve
 
 1. Download or clone the repository
 2. Download `JetBrainsMonoBold50pt7b.h`
-3. Open the project in Arduino IDE and setup <https://manuals.plus/ae/1005007181435830>
+3. [Open the project in Arduino IDE and setup]<https://manuals.plus/ae/1005007181435830>
 4. Install required libraries:
 
-   * Adafruit GFX <https://learn.adafruit.com/adafruit-gfx-graphics-library/overview>
-   * Adafruit ST7789 <https://www.arduinolibraries.info/libraries/adafruit-st7735-and-st7789-library>
-5. Assemble the input divider/filter circuit <https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/diagram.png>
+   * [Adafruit GFX]<https://learn.adafruit.com/adafruit-gfx-graphics-library/overview>
+   * [Adafruit ST7789]<https://www.arduinolibraries.info/libraries/adafruit-st7735-and-st7789-library>
+5. [Assemble the input divider/filter circuit]<https://raw.githubusercontent.com/danuecumaster/ESP32-Digital-Wideband-AFR-Gauge/main/assets/diagram.png>
 6. Connect the wideband analog output
 7. Upload the firmware
 8. Power the ESP32
