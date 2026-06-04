@@ -93,6 +93,7 @@ void setup() {
     tft.fillScreen(BG_COLOR);
 	
 	//analogReadResolution(12);
+	pinMode(WB_PIN, INPUT);
 	analogSetWidth(12);	
     analogSetPinAttenuation(WB_PIN, ADC_11db);
 	analogRead(WB_PIN);
