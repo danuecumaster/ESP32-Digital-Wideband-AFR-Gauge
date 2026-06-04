@@ -40,6 +40,7 @@
 #define AFR_DIVIDE  	2.0f
 #define ADC_MAX_COUNTS 	4095.0f
 #define ADC_REF_VOLTAGE 3.3f
+#define ADC_GAIN		1.0000f	//GPIO CALIBRATION AND OFFSET ERROR
 
 #define BG_COLOR  		0x0841
 #define TXT_COLOR 		ST77XX_WHITE
@@ -128,7 +129,7 @@ void loop() {
         sum += analogRead(WB_PIN);
     }
     uint16_t raw 	= (sum / ADC_SAMPLES);
-	float voltage	= (raw / ADC_MAX_COUNTS * ADC_REF_VOLTAGE);
+	float voltage	= (raw / ADC_MAX_COUNTS * ADC_REF_VOLTAGE * ADC_GAIN);
 	float wbVoltage = (voltage * V_DIVIDE);
 	afr_value 		= (AFR_MIN + (wbVoltage * AFR_DIVIDE));
 	
