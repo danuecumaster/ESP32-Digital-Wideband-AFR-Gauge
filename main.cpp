@@ -33,7 +33,7 @@
 #define BL        		32
 #define SCREEN_W	 	320
 #define SCREEN_H	 	170
-#define FRAME_TIME_MS 	33
+#define FRAME_TIME_MS 	50 //100 = 10FPS, 50 = 20FPS, 33 = 30FPS
 
 #define WB_PIN 	  		33
 #define V_DIVIDE  		2.0f
