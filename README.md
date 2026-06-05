@@ -287,7 +287,7 @@ Adjust the conversion formula in the firmware to match your controller.
 
 ### Want faster / slower display FPS?
 
-```#define FRAME_TIME_MS``` => 100 = 10FPS, 50 = 20FPS, 33 = 30FPS
+```#define FRAME_TIME_MS``` 100 => 10FPS, 50 => 20FPS, 33 => 30FPS
 
 ### What print material should I use?
 
