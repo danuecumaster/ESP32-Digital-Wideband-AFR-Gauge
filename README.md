@@ -124,9 +124,9 @@ Current firmware assumes:
 Current conversion formula:
 
 ```cpp
-float voltage   = ((raw / 4095.0f) * 3.3f);
-float wbVoltage = (voltage * 2.0f);
-float afr       = (10.0f + (wbVoltage * 2.0f));
+float voltage	= (raw / ADC_MAX_COUNTS * ADC_REF_VOLTAGE * ADC_GAIN);
+float wbVoltage = (voltage * V_DIVIDE);
+afr_value 		= (AFR_MIN + (wbVoltage * AFR_DIVIDE));
 ```
 
 If your wideband controller uses a different voltage-to-AFR mapping, adjust the conversion formula accordingly.
@@ -146,7 +146,7 @@ For maximum accuracy, the firmware includes an optional gain correction factor:
 Voltage calculation:
 
 ```cpp
-float voltage = ((raw / 4095.0f) * 3.3f * ADC_GAIN);
+float voltage	= (raw / ADC_MAX_COUNTS * ADC_REF_VOLTAGE * ADC_GAIN);
 ```
 
 ### Calibration Procedure
@@ -219,8 +219,6 @@ This works together with the RC filter to produce smoother AFR readings.
 ## 🧰 Hardware Used
 
 * [Ideaspark ESP32 1.9" LCD Board](https://manuals.plus/ae/1005007181435830)
-* ESP32-WROOM
-* ST7789 170×320 TFT Display
 * Wideband Controller with 0-5V Analog Output [Example:14Point7 SLC 2](https://www.14point7.com/products/sigma-lambda-controller-free-2>)
 * 10kΩ Resistors (×2)
 * 1kΩ Resistor
