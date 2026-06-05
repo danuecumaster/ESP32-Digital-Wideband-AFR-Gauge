@@ -285,6 +285,10 @@ Different wideband controllers may use different voltage-to-AFR mappings.
 
 Adjust the conversion formula in the firmware to match your controller.
 
+### Want faster / slower display FPS?
+
+```#define FRAME_TIME_MS``` value => 100 = 10FPS, 50 = 20FPS, 33 = 30FPS
+
 ### What print material should I use?
 
 ABS or ASA are recommended for automotive interiors.
