@@ -2,7 +2,7 @@
 // WIDEBAND ANALOG INPUT (GPIO33)
 //
 // ESP32 ADC INPUTS ARE NOT 5V TOLERANT.
-// DO NOT CONNECT IT DIRECTLY TO GPIO33.
+// DO NOT CONNECT DIRECTLY TO GPIO33.
 //
 //   WB 0-5V
 //      |
@@ -35,7 +35,8 @@
 #define SCREEN_H	 	170
 #define FRAME_TIME_MS 	50 				//100 = 10FPS, 50 = 20FPS, 33 = 30FPS
 
-#define WB_PIN 	  		33
+#define WB_PIN 	  		33				//WIDEBAND PIN
+#define ADC_SAMPLES		16				//NUMBER OF ADC SAMPLES
 #define V_DIVIDE  		2.0f
 #define AFR_DIVIDE  	2.0f
 #define ADC_MAX_COUNTS 	4095.0f
@@ -48,14 +49,13 @@
 #define AFR_MAX		 	20.0f
 #define AFR_RICH	 	12.0f
 #define AFR_STOICH	 	15.0f
-#define ADC_SAMPLES		16
 
 #define NUM_BOXES 		11
 #define GAP 			2
 #define BOX_HEIGHT 		28
 #define INACTIVE_COLOR  0x0861
 
-#define DEBUG_MODE  	1 				// 1 = ON, 0 = OFF
+#define DEBUG_MODE  	1 				//1 = ON, 0 = OFF
 
 Adafruit_ST7789 tft(TFT_CS, TFT_DC, TFT_RST);
 GFXcanvas16 canvas(SCREEN_W, SCREEN_H);
