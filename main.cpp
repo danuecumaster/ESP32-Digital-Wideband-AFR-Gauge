@@ -141,7 +141,7 @@ void loop() {
 	#endif
 	
 	if(afr_value < AFR_MIN || afr_value > AFR_MAX) {
-		strcpy(buf, "ERR");
+		strcpy(buf, "ERROR");
 		afr_value = 0.0f;
 	} else {
 		snprintf(buf, sizeof(buf), "%.2f", afr_value);			
