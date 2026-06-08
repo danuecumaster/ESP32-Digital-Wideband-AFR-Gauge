@@ -1,23 +1,23 @@
 // -----------------------------------------------------------------------------
-// Wideband Analog Input (GPIO33)
+// WIDEBAND ANALOG INPUT (GPIO33)
 //
-// ESP32 ADC inputs are NOT 5V tolerant.
-// Do NOT connect it directly to GPIO33.
+// ESP32 ADC INPUTS ARE NOT 5V TOLERANT.
+// DO NOT CONNECT IT DIRECTLY TO GPIO33.
 //
 //   WB 0-5V
 //      |
-//     10k
+//     10K
 //      |
-//      +---- 1k ----+----> GPIO33
+//      +---- 1K ----+----> GPIO33
 //      |            |
-//     10k         100nF
+//     10K         100NF
 //      |            |
 //     GND          GND
 //
-// Divider: 10k / 10k  -> 0-5V becomes approximately 0-2.5V
-// Filter : 1k + 100nF -> reduces ADC noise
+// DIVIDER: 10K / 10K  -> 0-5V BECOMES APPROXIMATELY 0-2.5V
+// FILTER : 1K + 100NF -> REDUCES ADC NOISE
 //
-// See README.md for wiring details.
+// SEE README.MD FOR WIRING DETAILS.
 // -----------------------------------------------------------------------------
 
 #include <Adafruit_GFX.h>
@@ -33,14 +33,14 @@
 #define BL        		32
 #define SCREEN_W	 	320
 #define SCREEN_H	 	170
-#define FRAME_TIME_MS 	50 //100 = 10FPS, 50 = 20FPS, 33 = 30FPS
+#define FRAME_TIME_MS 	50 				//100 = 10FPS, 50 = 20FPS, 33 = 30FPS
 
 #define WB_PIN 	  		33
 #define V_DIVIDE  		2.0f
 #define AFR_DIVIDE  	2.0f
 #define ADC_MAX_COUNTS 	4095.0f
 #define ADC_REF_VOLTAGE 3.3f
-#define ADC_GAIN		1.0000f	//GPIO CALIBRATION AND OFFSET ERROR
+#define ADC_GAIN		1.0000f			//GPIO CALIBRATION AND ADJUSTMENT
 
 #define BG_COLOR  		0x0841
 #define TXT_COLOR 		ST77XX_WHITE
@@ -54,6 +54,8 @@
 #define GAP 			2
 #define BOX_HEIGHT 		28
 #define INACTIVE_COLOR  0x0861
+
+#define DEBUG_MODE  	1 				// 1 = ON, 0 = OFF
 
 Adafruit_ST7789 tft(TFT_CS, TFT_DC, TFT_RST);
 GFXcanvas16 canvas(SCREEN_W, SCREEN_H);
@@ -128,12 +130,15 @@ void loop() {
 	for (int i = 0; i < ADC_SAMPLES; i++) {
         sum += analogRead(WB_PIN);
     }
-    uint16_t raw 	= (sum / ADC_SAMPLES);
+    float raw 		= ((float)sum / ADC_SAMPLES);
 	float voltage	= (raw / ADC_MAX_COUNTS * ADC_REF_VOLTAGE * ADC_GAIN);
 	float wbVoltage = (voltage * V_DIVIDE);
 	afr_value 		= (AFR_MIN + (wbVoltage * AFR_DIVIDE));
 	
-	Serial.printf( "raw=%u gpio=%.3fV wb=%.3fV AFR=%.2f\n", raw, voltage, wbVoltage, afr_value ); // DEBUG
+	// DEBUG MODE - PRINT IF 1
+	#if DEBUG_MODE
+		Serial.printf("raw=%.2f gpio=%.3fV wb=%.3fV AFR=%.2f\n", raw, voltage, wbVoltage, afr_value);
+	#endif
 	
 	if(afr_value < AFR_MIN || afr_value > AFR_MAX) {
 		strcpy(buf, "ERR");
@@ -149,6 +154,6 @@ void loop() {
 
 	uint32_t end_loop = (millis() - start_loop);
     if (end_loop < FRAME_TIME_MS) {
-		delay(FRAME_TIME_MS - end_loop); //30FPS. ADJUST AS NEEDED. 
+		delay(FRAME_TIME_MS - end_loop); //20FPS. ADJUST AS NEEDED. 
 	}	
 }
