@@ -118,8 +118,8 @@ Place the file in the project directory before compiling.
 Current firmware assumes:
 
 ```text
-0.0V = ~10.00 AFR
-5.0V = ~20.00 AFR
+0.0V => ~10.00 AFR
+5.0V => ~20.00 AFR
 ```
 
 Current conversion formula:
