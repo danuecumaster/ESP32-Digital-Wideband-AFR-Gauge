@@ -20,13 +20,14 @@ Designed for automotive use, the gauge provides a large, easy-to-read AFR displa
 
 ### Features
 
-* Large AFR readout
-* Color-coded AFR status bar
-* RC-filtered analog input
-* 16-sample ADC averaging
-* Compact 1.9" display
 * ESP32-based design
-* Simple 0-5V analog input interface
+* Compact 1.9" display
+* Large mono-space AFR readout
+* Color-coded AFR status bar
+* ADC voltage calibration
+* 16-sample ADC averaging
+* RC-filtered 0-5V analog input interface
+* Voltage divider
 
 ---
 
