@@ -1,4 +1,4 @@
-# 🚗 ESP32 Digital Wideband AFR Gauge
+# ESP32 Digital Wideband AFR Gauge
 
 ### Compact standalone AFR display for 0-5V wideband controllers
 
