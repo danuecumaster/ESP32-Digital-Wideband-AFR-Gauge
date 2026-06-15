@@ -5,8 +5,7 @@
 [![ESP32](https://img.shields.io/badge/MCU-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
 [![ADS1115](https://img.shields.io/badge/ADC-ADS1115%2016--Bit-green.svg)]()
 [![Wideband](https://img.shields.io/badge/Wideband-0--5V%20Input-orange.svg)]()
-[![AFR](https://img.shields.io/badge/Gauge-Digital%20AFR-success.svg)]()
-																				 
+[![AFR](https://img.shields.io/badge/Gauge-Digital%20AFR-success.svg)]()														 
 [![Arduino](https://img.shields.io/badge/Framework-Arduino-blue.svg)](https://www.arduino.cc/)
 [![C++](https://img.shields.io/badge/Language-C++-orange.svg)](https://isocpp.org)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)]()
