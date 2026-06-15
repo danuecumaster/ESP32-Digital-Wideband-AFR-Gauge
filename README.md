@@ -182,11 +182,11 @@ ADC_CORRECTION = Actual Voltage / Measured Voltage
 Example:
 
 ```text
-Multimeter Voltage : 2.500V
-Firmware Voltage   : 2.450V
+Multimeter Voltage  : 2.500V
+Firmware Voltage    : 2.450V
 
-ADC_CORRECTION = 2.500 / 2.450
-               = 1.0204
+ADC_CORRECTION 		= 2.500 / 2.450
+					= 1.0204
 ```
 
 Update the firmware:
@@ -238,37 +238,19 @@ Increase `ADC_SAMPLES` for smoother readings or decrease it for faster response.
 
 ## 🧰 Hardware Used
 
-* Ideaspark ESP32 1.9" LCD Board
-* ADS1115 16-bit I²C ADC Module
-* Wideband Controller with 0-5V Analog Output
+* [Ideaspark ESP32 1.9" LCD Board](https://manuals.plus/ae/1005007181435830)
+* [ADS1115 16-bit I²C ADC Module](https://www.ti.com/lit/ds/symlink/ads1115.pdf)
+* Wideband Controller with 0-5V Analog Output [Example:14Point7 SLC 2](https://www.14point7.com/products/sigma-lambda-controller-free-2>)
 * 10kΩ Resistors (×2)
 * 1kΩ Resistor
 * 100nF Ceramic Capacitor
 
 ---
 
-## 🖨️ Enclosure
-
-A custom 3D-printable enclosure is included.
-
-### Downloads
-
-* Case STL
-* Cover STL
-
-### Recommended Materials
-
-* ABS (recommended)
-* ASA
-
-PLA is not recommended due to the temperatures commonly reached inside parked vehicles.
-
----
-
 ## 📥 Installation
 
 1. Download or clone the repository
-2. Download `JetBrainsMonoBold50pt7b.h`
+2. Download `JetBrainsMonoBold50pt7b.h` and copy to main directory
 3. Open the project in Arduino IDE
 4. Install required libraries:
 
@@ -320,10 +302,6 @@ Examples:
 50  = 20 FPS
 33  = 30 FPS
 ```
-
-### What print material should I use?
-
-ABS or ASA are recommended for automotive interiors.
 
 ---
 
