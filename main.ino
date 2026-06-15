@@ -15,12 +15,14 @@
 // SEE README.MD FOR WIRING DETAILS.
 // -----------------------------------------------------------------------------
 
+/**** LIBRARIES ****/
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_ADS1X15.h>
 #include "JetBrainsMonoBold50pt7b.h"
+/**** LIBRARIES ****/
 
 /**** DISPLAY PINS ****/
 #define TFT_MOSI  		23
@@ -36,11 +38,11 @@
 #define SCL_PIN   		22
 /**** I2C PINS ****/
 
-/**** SCREEN SETTINGS ****/
+/**** DISPLAY SETTINGS ****/
 #define SCREEN_W	 	320
 #define SCREEN_H	 	170
 #define FRAME_TIME_MS 	50 				// 100 = 10FPS, 50 = 20FPS, 33 = 30FPS
-/**** SCREEN SETTINGS ****/
+/**** DISPLAY SETTINGS ****/
 
 /**** ADC SETTINGS ****/
 #define ADC_SAMPLES		2				// NUMBER OF ADC SAMPLES
@@ -64,7 +66,7 @@
 /**** AFR BOX SETTINGS ****/
 
 /**** DEBUG ****/
-#define DEBUG_MODE  	1 				//1 = ON, 0 = OFF
+#define DEBUG_MODE  	1 				// 1 = ON, 0 = OFF
 /**** DEBUG ****/
 
 Adafruit_ST7789 tft(TFT_CS, TFT_DC, TFT_RST);
