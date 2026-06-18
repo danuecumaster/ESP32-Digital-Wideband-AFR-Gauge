@@ -69,7 +69,11 @@ Wideband input is connected to **ADS1115 channel A0**.
 
 This project uses a 10kΩ / 10kΩ divider to reduce the wideband's 0-5V output to approximately 0-2.5V before it reaches the ADS1115.
 
-The divider provides additional protection and matches the firmware's scaling assumptions.
+The ADS1115 can measure input voltages up to its supply voltage (VCC). In this project, the ADS1115 is powered from the ESP32's 3.3V supply to ensure safe compatibility with the ESP32's 3.3V I²C bus.
+
+Because the wideband output can reach 5V, the divider reduces the signal to a safe measurement range while also matching the firmware's scaling assumptions.
+
+The divider also provides additional protection against accidental overvoltage conditions.
 
 ### Recommended Input Circuit
 
