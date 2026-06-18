@@ -23,7 +23,7 @@ Designed for automotive use, the gauge provides a large, easy-to-read AFR displa
 * ESP32-based design
 * ADS1115 16-bit external ADC
 * Compact 1.9" display
-* Large mono-space AFR readout
+* Large monospace AFR readout
 * Color-coded AFR status bar
 * ADC calibration support
 * Configurable ADC averaging
@@ -65,11 +65,11 @@ Wideband input is connected to **ADS1115 channel A0**.
 
 ## ⚠️ Wideband Input Protection
 
-### ADS1115 Inputs Are NOT 5V Tolerant
+### Divider Recommended for 0-5V Wideband Outputs
 
-If your wideband controller outputs a **0-5V analog signal**, do **not** connect it directly to the ADS1115 input.
+This project uses a 10kΩ / 10kΩ divider to reduce the wideband's 0-5V output to approximately 0-2.5V before it reaches the ADS1115.
 
-Doing so may damage the ADS1115 or cause inaccurate readings.
+The divider provides additional protection and matches the firmware's scaling assumptions.
 
 ### Recommended Input Circuit
 
@@ -134,7 +134,7 @@ Current firmware assumes:
 Current conversion formula:
 
 ```cpp
-float voltage 	= (rawV * V_MULTIPLIER * ADC_CORRECTION);
+float voltage	= ((rawV + ADC_OFFSET) * V_MULTIPLIER * ADC_CORRECTION);
 float afr 		= (AFR_MIN + (voltage * WBO_MULTIPLIER));
 												   
 ```
@@ -142,9 +142,10 @@ float afr 		= (AFR_MIN + (voltage * WBO_MULTIPLIER));
 Where:
 
 ```text
-rawV            = ADS1115 measured voltage
-V_MULTIPLIER    = Divider compensation (2.0)
-ADC_CORRECTION  = ADC calibration factor
+rawV            = ADS1115 measured voltage (after divider)
+V_MULTIPLIER    = Divider compensation factor (2.0)
+ADC_OFFSET      = ADC offset correction
+ADC_CORRECTION  = ADC gain correction factor
 WBO_MULTIPLIER  = AFR scaling factor
 ```
 
@@ -156,37 +157,74 @@ If your wideband controller uses a different voltage-to-AFR mapping, adjust the 
 
 The ADS1115 is generally very accurate, but resistor tolerances in the divider network may introduce small measurement errors.
 
-For maximum accuracy, the firmware includes an optional correction factor:
+For maximum accuracy, the firmware includes both a gain correction factor and an offset correction:
 
 ```cpp
 #define ADC_CORRECTION 1.0000f
+#define ADC_OFFSET     0.0000f
 ```
 
 Voltage calculation:
 
 ```cpp
-float voltage = (rawV * V_MULTIPLIER * ADC_CORRECTION);
+float voltage = ((rawV + ADC_OFFSET) * V_MULTIPLIER * ADC_CORRECTION);
 ```
 
-### Calibration Procedure
-
-1. Apply a known voltage to the wideband input.
-2. Measure the voltage using a quality multimeter.
-3. Compare the measured voltage against the voltage reported by the firmware.
-4. Calculate the correction factor:
+### Calibration Parameters
 
 ```text
-ADC_CORRECTION = Actual Voltage / Measured Voltage
+ADC_OFFSET     = Corrects zero-voltage offset error
+ADC_CORRECTION = Corrects gain (scaling) error
 ```
+
+---
+
+### Step 1 - Offset Calibration
+
+Disconnect the wideband signal or apply a known 0.0V input.
+
+Observe the voltage reported by the firmware:
+
+```text
+Firmware Voltage : 0.004V
+Actual Voltage   : 0.000V
+```
+
+Calculate:
+
+```text
+ADC_OFFSET = Actual Voltage - Firmware Voltage
+ADC_OFFSET = 0.000 - 0.004
+ADC_OFFSET = -0.004
+```
+
+Update the firmware:
+
+```cpp
+#define ADC_OFFSET -0.0040f
+```
+
+The reported voltage should now read approximately 0.000V.
+
+---
+
+### Step 2 - Gain Calibration
+
+Apply a known voltage near the upper end of the operating range.
 
 Example:
 
 ```text
-Multimeter Voltage  : 2.500V
-Firmware Voltage    : 2.450V
+Wideband Input Voltage  : 2.500V
+Firmware Voltage   		: 2.450V
+```
 
-ADC_CORRECTION 		= 2.500 / 2.450
-					= 1.0204
+Calculate:
+
+```text
+ADC_CORRECTION = Actual Voltage / Firmware Voltage
+ADC_CORRECTION = 2.500 / 2.450
+ADC_CORRECTION = 1.0204
 ```
 
 Update the firmware:
@@ -195,10 +233,13 @@ Update the firmware:
 #define ADC_CORRECTION 1.0204f
 ```
 
-### Recommended Test Points
+---
 
-For best results, verify several points across the operating range:
+### Verification
 
+After setting both parameters, verify several points across the operating range:
+
+Recommended wideband input test points:
 ```text
 0.0V
 1.5V
@@ -208,10 +249,14 @@ For best results, verify several points across the operating range:
 
 If the calculated voltage closely matches the multimeter reading at all test points, calibration is complete.
 
+---
+
 ### Notes
 
-* Calibration compensates primarily for resistor tolerance.
-* Most installations require little or no correction.
+* Perform offset calibration before gain calibration.
+* ADC_OFFSET corrects zero-voltage errors.
+* ADC_CORRECTION corrects scaling errors.
+* Most installations require little or no adjustment.
 * Calibration only needs to be performed once unless hardware is changed.
 * The 100nF filter capacitor does not affect DC calibration accuracy.
 
@@ -222,7 +267,7 @@ If the calculated voltage closely matches the multimeter reading at all test poi
 The ADS1115 reading can be averaged in firmware:
 
 ```cpp
-#define ADC_SAMPLES 2
+#define ADC_SAMPLES 4
 ```
 
 Current firmware averages the configured number of ADS1115 samples before calculating AFR.
@@ -240,7 +285,7 @@ Increase `ADC_SAMPLES` for smoother readings or decrease it for faster response.
 
 * [Ideaspark ESP32 1.9" LCD Board](https://manuals.plus/ae/1005007181435830)
 * [ADS1115 16-bit I²C ADC Module](https://www.ti.com/lit/ds/symlink/ads1115.pdf)
-* Wideband Controller with 0-5V Analog Output [Example:14Point7 SLC 2](https://www.14point7.com/products/sigma-lambda-controller-free-2>)
+* Wideband Controller with 0-5V Analog Output [Example:14Point7 SLC 2](https://www.14point7.com/products/sigma-lambda-controller-free-2)
 * 10kΩ Resistors (×2)
 * 1kΩ Resistor
 * 100nF Ceramic Capacitor
@@ -279,9 +324,9 @@ Verify:
 
 ### Can I connect a 5V signal directly to ADS1115 A0?
 
-No.
+Not in this project.
 
-The divider network is required to reduce the wideband's 0-5V output to approximately 0-2.5V before it reaches the ADS1115.
+The firmware assumes the recommended 10kΩ / 10kΩ divider network, which reduces the signal to approximately 0-2.5V before it reaches the ADS1115.
 
 ### Why does the displayed AFR not match my controller?
 
