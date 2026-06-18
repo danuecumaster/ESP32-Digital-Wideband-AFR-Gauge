@@ -45,8 +45,9 @@
 /**** DISPLAY SETTINGS ****/
 
 /**** ADC SETTINGS ****/
-#define ADC_SAMPLES		2				// NUMBER OF ADC SAMPLES
-#define ADC_CORRECTION	1.0000f			// ADC CALIBRATION FACTOR
+#define ADC_SAMPLES		4				// NUMBER OF ADC SAMPLES
+#define ADC_CORRECTION	1.0000f			// ADC LINEAR CALIBRATION FACTOR
+#define ADC_OFFSET		-0.0000f		// ADC OFFSET VOLTAGE +-
 #define V_MULTIPLIER	2.0f			// COMPENSATE FOR 10K/10K DIVIDER
 #define WBO_MULTIPLIER	2.0f			// WBO CONTROLLER MULTIPLIER 
 #define AFR_TOLERANCE	0.5f			// ERROR THRESHOLD
@@ -149,7 +150,7 @@ void loop() {
     }
 	
     float rawV			= ((float)sum / ADC_SAMPLES);
-	float voltage		= (rawV * V_MULTIPLIER * ADC_CORRECTION);
+	float voltage		= ((rawV + ADC_OFFSET) * V_MULTIPLIER * ADC_CORRECTION);
 	afr					= (AFR_MIN + (voltage * WBO_MULTIPLIER));
 	
 	#if DEBUG_MODE
