@@ -83,10 +83,10 @@ void drawTopBoxes(GFXcanvas16 &c, float afr) {
     int activeBoxes;
 	uint16_t activeColor;
 
-	if (afr < AFR_MIN) {
+	if (afr < (AFR_MIN - AFR_TOLERANCE)) {
         activeBoxes = 0;
 	} else {
-        activeBoxes = min(NUM_BOXES, (int)(afr - (AFR_MIN - 1.0f)));
+		activeBoxes = min(NUM_BOXES, (int)ceilf(afr - (AFR_MIN - 1.0f)));
 	}
 	
 	if (afr < AFR_RICH) {
